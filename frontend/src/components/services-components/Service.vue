@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row py-5">
             <ListOfServices :services="services" />
-            <ServicesRight :title="serviceName" :content="content" />
+            <ServicesRight :title="getServiceName()" :content="getServiceContent()" />
         </div>
     </div>
 </template>
@@ -102,6 +102,21 @@ export default {
             content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." 
         }
     ]
+    },
+    methods: {
+        getServiceName() {
+            if(!this.serviceName) {
+                return this.services.find(service => service.name == this.name).serviceName
+            }
+            return this.serviceName
+        },
+
+        getServiceContent() {
+            if(!this.serviceName) {
+                return this.services.find(service => service.name == this.name).content
+            }
+            return this.content
+        }
     }
 
 }
