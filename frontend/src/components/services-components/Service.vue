@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <div class="row py-5">
-            <ListOfServices :services="services" />
+            <ListOfServices :services="services" :serviceName="getServiceName()" />
             <ServicesRight :title="getServiceName()" :content="getServiceContent()" />
         </div>
     </div>

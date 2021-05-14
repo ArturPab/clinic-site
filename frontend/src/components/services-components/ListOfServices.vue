@@ -1,7 +1,7 @@
 <template>
     <div class="col-xl-3 col-lg-4 mb-5">
         <div class="list-group">
-            <ServiceItem v-for="service in services" :key="service.id" :service="service" />
+            <ServiceItem v-for="service in services" :key="service.id" :service="service" :serviceName="serviceName" />
         </div>
     </div>
 </template>
@@ -12,7 +12,8 @@ import ServiceItem from "./ServiceItem"
 export default {
     name: "ListOfServices",
     props: {
-        services: Array
+        services: Array,
+        serviceName: String
     },
     components: {
         ServiceItem

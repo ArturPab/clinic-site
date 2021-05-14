@@ -1,5 +1,5 @@
 <template>
-    <router-link :to="{ name: 'Service', params: {name:service.name, serviceName: service.serviceName, content: service.content }  }" class="list-group-item list-group-item-action border-0 p-0 my-2" style="height: 4rem;">
+    <router-link :to="{ name: 'Service', params: {name:service.name, serviceName: service.serviceName, content: service.content }  }" :class="getServiceClass()" style="height: 4rem;">
         <div class="row p-0 m-0 h-100 w-100 changeBg">
             <div class="col-3 justify-content-center align-items-center d-flex">
                 <div class="icon-wrapper rounded-circle pb-1 d-flex justify-content-center align-items-center" style="
@@ -19,7 +19,17 @@ export default {
     name: "ServiceItem",
     props: {
         service: Object,
+        serviceName: String
     },
+
+    methods: {
+        getServiceClass() {
+            if(this.service.serviceName === this.serviceName) {
+                return "list-group-item list-group-item-action border-0 p-0 my-2 order-first disabled"
+            }
+            return "list-group-item list-group-item-action border-0 p-0 my-2"
+        }
+    }
 
 }
 </script>
