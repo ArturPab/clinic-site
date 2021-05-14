@@ -1,6 +1,6 @@
 <template>
     <div class="row justify-content-center mt-4">
-            <div class="col-8 d-flex justify-content-center text-info fs-2">
+            <div class="col-12 d-flex justify-content-center text-info fs-2">
                 <div class="me-2">
                     <i class="fas fa-phone-alt" style="color: #008000;"></i>
                 </div>
