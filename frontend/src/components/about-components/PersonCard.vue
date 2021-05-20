@@ -2,10 +2,10 @@
     <div class="container pb-5">
         <div class="card mb-5 shadow" style="max-width:1600px">
             <div class="row g-0">
-                <PersonImage :imgSrc="person.imageUrl" :altName="person.fullName"/>
+                <PersonImage :imgSrc="person.imgPath" :altName="person.name"/>
                 <div class="col-md-8">
                     <div class="card-body">
-                        <PersonName :fullName="person.fullName" />
+                        <PersonName :fullName="person.name" />
                         <PersonJobPosition :jobPosition="person.jobPosition" />
                         <PersonAbout :about="person.about" />
                     </div>

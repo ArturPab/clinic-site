@@ -7,10 +7,10 @@ const ManagementSchema = Joi.object({
     imgPath: Joi.string().min(1).max(255)
 })
 
-const postValidation = data => {
+const managementValidation = data => {
     const schema = ManagementSchema
 
     return schema.validate(data)
 }
 
-module.exports.postValidation = postValidation
+module.exports.managementValidation = managementValidation
