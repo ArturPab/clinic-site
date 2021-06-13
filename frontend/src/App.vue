@@ -1,11 +1,9 @@
 <template>
-    <!-- <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link> -->
-    <Header />
-    <Banner />
-    <router-view />
-    <Footer content="Copyright &copy Przychodnia Lekarska Medycyny rodzinnej i specjalistycznej. Wszelkie Prawa Zastrzeżone.Kopiowanie, przetwarzanie i rozpowszechnianie tych materiałow w całosci lub w części bez zgody właściciela jest zabronione i stanowi naruszenie praw autorskich."/>
-    <ScrollButton />
+    <Header v-if="!isPanelOpened"/>
+    <Banner v-if="!isPanelOpened"/>
+    <router-view @panel="togglePanel"/>
+    <Footer v-if="!isPanelOpened" content="Copyright &copy Przychodnia Lekarska Medycyny rodzinnej i specjalistycznej. Wszelkie Prawa Zastrzeżone.Kopiowanie, przetwarzanie i rozpowszechnianie tych materiałow w całosci lub w części bez zgody właściciela jest zabronione i stanowi naruszenie praw autorskich."/>
+    <ScrollButton v-if="!isPanelOpened" />
 </template>
 
 <script>
@@ -14,13 +12,25 @@ import Footer from './components/Footer'
 import Banner from './components/Banner'
 import ScrollButton from './components/ScrollButton'
 
+
 export default {
     name: 'App',
     components: {
         Header,
         Banner,
         Footer,
-        ScrollButton
+        ScrollButton,
+    },
+    methods: {
+        togglePanel(isPanel) {
+            this.isPanelOpened = isPanel
+        }
+    },
+
+    data() {
+        return {
+            isPanelOpened: false
+        }
     },
 }
 </script>
@@ -55,5 +65,9 @@ html {
 
 h1 {
     color: var(--blue-4);
+}
+
+.panel {
+    background-color: rgb(235, 235, 235);
 }
 </style>
