@@ -4,6 +4,9 @@ import Vaccinates from "../views/Vaccinates.vue"
 import PatientRights from "../views/PatientRights.vue"
 import Services from "../views/Services.vue"
 import Service from "@/components/services-components/Service.vue"
+import CMSPanel from "../views/CMS.vue"
+import CMSManagement from "../views/cms/CMSManagement.vue"
+import HomeCMS from "../views/cms/HomeCMS.vue"
 
 const routes = [
   {
@@ -24,6 +27,23 @@ const routes = [
     path: "/szczepienia",
     name: "Vaccinates",
     component: Vaccinates,
+  },
+  {
+    path: "/panel",
+    name: "CMS",
+    component: CMSPanel,
+    children: [
+      {
+        path: '',
+        name: 'HomeCMS',
+        component: HomeCMS
+      },
+      {
+        path: 'zarzad',
+        name: 'CMSManagement',
+        component: CMSManagement
+      },
+    ]
   },
   {
     path: "/prawa-pacjenta",
