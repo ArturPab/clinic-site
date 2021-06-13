@@ -19,12 +19,9 @@ const ManagementSchema = new mongoose.Schema({
         min: 30,
         max: 4096
     },
-    imgPath: {
-        type: String,
-        required: false,
-        min: 1,
-        max: 255
-    }
+    img: {
+        type: String
+    },
 })
 
 module.exports = mongoose.model('Management', ManagementSchema)
